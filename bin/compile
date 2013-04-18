@@ -30,6 +30,10 @@ cp "$VENDORED_NGINX/sbin/nginx" "$BUILD_DIR/bin/nginx"
 cat <<EOF >"$BUILD_DIR/bin/start_nginx"
 #!/usr/bin/env bash
 erb conf/nginx.conf.erb > conf/nginx.conf
+if [ -f conf/site.htpasswd.erb ];
+then
+  erb conf/site.htpasswd.erb > conf/site.htpasswd
+end
 mkdir -p logs
 touch logs/access.log logs/error.log
 (tail -qF -n 0 --pid=\$\$ logs/*.log &)

@@ -1,6 +1,3 @@
-**NOTICE: this project is no longer actively maintained**
-
-
 Heroku buildpack: nginx
 =======================
 
@@ -19,7 +16,7 @@ Example usage:
     html:
     index.html
 
-    $ heroku create --stack cedar --buildpack http://github.com/essh/heroku-buildpack-nginx.git
+    $ heroku create --stack cedar --buildpack http://github.com/neilmiddleton/heroku-buildpack-nginx.git
     ...
 
     $ git push heroku master
@@ -72,3 +69,12 @@ Commit and push the changes to your buildpack to your Github fork, then push
 your sample app to Heroku to test. You should see:
 
     -----> Vendoring nginx 1.0.12
+
+Auth
+----
+
+This buildpack supports HTTP basic auth.  By dropping a site.htpasswd.erb into
+your /conf folder you can set `AUTH_USERNAME` and `AUTH_PASSWORD` environment
+variables to define security.
+
+
