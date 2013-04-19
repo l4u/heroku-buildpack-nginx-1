@@ -70,11 +70,3 @@ your sample app to Heroku to test. You should see:
 
     -----> Vendoring nginx 1.0.12
 
-Auth
-----
-
-This buildpack supports HTTP basic auth.  By dropping a site.htpasswd.erb into
-your /conf folder you can set `AUTH_USERNAME` and `AUTH_PASSWORD` environment
-variables to define security.
-
-

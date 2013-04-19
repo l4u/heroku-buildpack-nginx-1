@@ -4,22 +4,22 @@
 set -e
 
 # config
-NGINX_VERSION="1.0.14"
-S3_BUCKET="essh-heroku-buildpack-nginx"
+NGINX_VERSION="1.2.8"
+S3_BUCKET="heroku-buildpack-nginx-binaries"
 
 # parse and derive params
 BUILD_DIR=$1
 CACHE_DIR=$2
 
 # s3 packages
-NGINX_PACKAGE="http://${S3_BUCKET}.s3.amazonaws.com/nginx-${NGINX_VERSION}.tgz"
+NGINX_PACKAGE="http://${S3_BUCKET}.s3.amazonaws.com/nginx-${NGINX_VERSION}.tar.gz"
 
 # vendor directories
 VENDORED_NGINX=$(mktemp -d -t nginx.XXXXXX)
 
 # download and upack packages
 echo "-----> Fetching nginx binaries"
-curl $NGINX_PACKAGE -s -o - | tar xzf - -C $VENDORED_NGINX
+curl $NGINX_PACKAGE -s -o - | tar xzf $VENDORED_NGINX
 
 # vendor nginx into the slug
 echo "-----> Vendoring nginx $NGINX_VERSION"
