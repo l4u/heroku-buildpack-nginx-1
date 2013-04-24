@@ -25,7 +25,7 @@ Example usage:
     -----> Fetching custom buildpack... done
     -----> Nginx app detected
     -----> Fetching nginx binaries
-    -----> Vendoring nginx 1.0.11
+    -----> Vendoring nginx 1.4.0
     ...
 
 The buildpack will detect your app as nginx if it has the file
@@ -55,18 +55,18 @@ First you'll need to build a Heroku-compatible version of nginx:
 
     $  export AWS_ID=xxx AWS_SECRET=yyy S3_BUCKET=zzz
     $ s3 create $S3_BUCKET
-    $ support/package_nginx 1.0.12 8.30
+    $ support/package_nginx 1.4.0 8.30
 
 The first argument to the package_nginx script is the nginx version. The
 second argument is the version of PCRE to compile nginx against.
 
 Open `bin/compile` in your editor, and change the following lines:
 
-    NGINX_VERSION="1.0.12"
+    NGINX_VERSION="1.4.0"
     S3_BUCKET=zzz
 
 Commit and push the changes to your buildpack to your Github fork, then push
 your sample app to Heroku to test. You should see:
 
-    -----> Vendoring nginx 1.0.12
+    -----> Vendoring nginx 1.4.0
 

@@ -4,7 +4,7 @@
 set -e
 
 # config
-NGINX_VERSION="1.2.8"
+NGINX_VERSION="1.4.0"
 S3_BUCKET="heroku-buildpack-nginx-binaries"
 
 # parse and derive params
