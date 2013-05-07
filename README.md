@@ -25,7 +25,7 @@ Example usage:
     -----> Fetching custom buildpack... done
     -----> Nginx app detected
     -----> Fetching nginx binaries
-    -----> Vendoring nginx 1.4.0
+    -----> Vendoring nginx 1.4.1
     ...
 
 The buildpack will detect your app as nginx if it has the file
